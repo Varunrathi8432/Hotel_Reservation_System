@@ -72,7 +72,7 @@ public class SystemRunner {
         int i = 5;
         while(i!=0){
             System.out.print(".");
-            Thread.sleep(500);
+            Thread.sleep(1000);
             i--;
         }
         System.out.println();

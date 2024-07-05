@@ -113,7 +113,7 @@ public class Hotel {
             System.out.print("Enter new contact number: ");
             String newContactNumber = scanner.next();
 
-            String query = "UPDATE reservations SET guest_name = ?, room_number = ?, contact_number = ? WHERE reservation_id = ?";
+            String query = "UPDATE reservations SET guest_name = ? room_number = ? contact_number = ? WHERE reservation_id = ?";
 
             try (PreparedStatement preStatement = connection.prepareStatement(query)) {
                 preStatement.setString(1, newGuestName);
@@ -168,7 +168,7 @@ public class Hotel {
 
             try (PreparedStatement preStatement = connection.prepareStatement(query)) {
                 preStatement.setInt(1, reservationId);
-            	ResultSet resultSet = preStatement.executeQuery();
+            	ResultSet resultSet = preStatement.executeQuery()
                 return resultSet.next(); // If there's a result, the reservation exists
             }
         } catch (SQLException e) {
